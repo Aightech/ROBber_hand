@@ -1,0 +1,23 @@
+{
+    "format": 3,
+    "thresholdStep": 1.0,
+    "minThreshold": 200.0,
+    "maxThreshold": 201.0,
+    "minRepeatability": 2,
+    "minDistBetweenBlobs": 10.0,
+    "filterByColor": 0,
+    "blobColor": 0,
+    "filterByArea": 1,
+    "minArea": 1.0,
+    "maxArea": 15000.0,
+    "filterByCircularity": 0,
+    "minCircularity": 8.0000001192092896e-01,
+    "maxCircularity": 3.4028234663852886e+38,
+    "filterByInertia": 1,
+    "minInertiaRatio": 1.0000000149011612e-01,
+    "maxInertiaRatio": 3.4028234663852886e+38,
+    "filterByConvexity": 1,
+    "minConvexity": 9.4999998807907104e-01,
+    "maxConvexity": 3.4028234663852886e+38,
+    "color_target": {"upper": [69, 156, 255], "lower": [29, 16, 0]}
+}
