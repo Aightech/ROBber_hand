@@ -1,0 +1,3 @@
+serial
+opencv-python
+numpy
