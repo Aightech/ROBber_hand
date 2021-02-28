@@ -1,8 +1,16 @@
 import numpy as np
 import json
 import cv2
+import sys
 
-cap = cv2.VideoCapture(1)
+if len(sys.argv) < 2:
+    print("Usage:")
+    print("\t" + sys.argv[0] + " camera_nb")
+    print("Ex:")
+    print("\t" + sys.argv[0] + " 1")
+    exit()
+
+cap = cv2.VideoCapture(int(sys.argv[1]))
 cap_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 cap_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 

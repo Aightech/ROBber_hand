@@ -3,11 +3,21 @@ import json
 import cv2
 import serial
 import struct
+import sys
 import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
+
 #connect to the arduino
-arduino = serial.Serial('COM5', 9600, timeout=1)
+if len(sys.argv) < 3:
+    print("Usage:")
+    print("\t" + sys.argv[0] + " arduino_port camera_nb")
+    print("Ex:")
+    print("\t" + sys.argv[0] + " COM5 1")
+    exit()
+
+
+arduino = serial.Serial(sys.argv[1], 9600, timeout=1)
 
 #get parameters
 detector = cv2.SimpleBlobDetector_create()
@@ -24,7 +34,7 @@ coef = [245/(data["finger_bound"]["upper"][i]-data["finger_bound"]["lower"][i]) 
 offset = [5-coef[i]*data["finger_bound"]["lower"][i] for i in range(NB_FINGER)]
 
 #get camera
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(int(sys.argv[2]))
 cap_width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
 
 while(True):
@@ -60,13 +70,10 @@ while(True):
     buffer += struct.pack('!B',crc)
     arduino.write(buffer)
     d = arduino.read()
-    while(not data):
-        d = arduino.read()
     if int.from_bytes(d,"big") == int(crc):
-        print("\t OK", end="")
+        print("\t COM OK         ", end="")
     else:
-        print("\t NOPE", end="")
-    
+        print("\t COM ERR " + str(int.from_bytes(d,"big")) + "|" + str(crc))
     # Display the resulting frame
     cv2.imshow('image',im_with_keypoints)
     cv2.imshow('real',opening)
@@ -77,3 +84,4 @@ while(True):
 # When everything done, release the capture
 cap.release()
 cv2.destroyAllWindows()
+print("\nEND")
