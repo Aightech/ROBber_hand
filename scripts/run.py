@@ -16,7 +16,7 @@ if len(sys.argv) < 3:
     print("\t" + sys.argv[0] + " COM5 1")
     exit()
 
-
+#connect to the arduino
 arduino = serial.Serial(sys.argv[1], 9600, timeout=1)
 
 #get parameters
@@ -29,9 +29,19 @@ lower_color = np.array(data["color_target"]["lower"])
 higher_color = np.array(data["color_target"]["upper"])
 kernel = np.ones((data["opening_kernel"],data["opening_kernel"]),np.uint8)
 NB_FINGER = data["NB_FINGER"]
+
+# BUFFER SIZE AND LOOKUP TABLE
+lookup_table = [0, 1, 2, 3]
+BUFF_SIZE=10
+
+r_pos = [0 for i in range(NB_FINGER)]
 f_pos = [0 for i in range(NB_FINGER)]
+b_ind =0
+b_pos = [[0 for i in range(NB_FINGER)] for j in range(BUFF_SIZE)]
 coef = [245/(data["finger_bound"]["upper"][i]-data["finger_bound"]["lower"][i]) for i in range(NB_FINGER)]
 offset = [5-coef[i]*data["finger_bound"]["lower"][i] for i in range(NB_FINGER)]
+
+
 
 #get camera
 cap = cv2.VideoCapture(int(sys.argv[2]))
@@ -55,22 +65,28 @@ while(True):
     ind=0
     for i in range(min(len(sorted_pt),NB_FINGER)):
         if i==0 or sorted_pt[i].pt[0]<sorted_pt[i-1].pt[0]-20:
-            f_pos[ind] = np.uint8(max(min(coef[ind]*sorted_pt[i].pt[1]+offset[ind],255),0))
+            r_pos[ind] = np.uint8(max(min(coef[ind]*sorted_pt[i].pt[1]+offset[ind],255),0))
             cv2.rectangle(im_with_keypoints, (int(sorted_pt[i].pt[0]-cap_width/8), data["finger_bound"]["upper"][ind]), (int(sorted_pt[i].pt[0]+cap_width/8), data["finger_bound"]["lower"][i]), (0,255,0), 2)
             ind += 1
+    
+    for i in range(NB_FINGER):
+        b_pos[b_ind][i]=r_pos[lookup_table[i]]
+        f_pos[i]=b_pos[b_ind-BUFF_SIZE+1][i]
+    b_ind = (b_ind+1)%BUFF_SIZE
     
     #Send position to the arduino and print in the terminal
     buffer = b'##'
     crc = np.uint8(0)
     print('\r| ', end="")
     for i in range(NB_FINGER):
-        print(str(f_pos[i]) + "\t| ", end="")
         buffer += struct.pack('!B',f_pos[i])
-        crc += f_pos[i]
+        crc = np.uint8(f_pos[i]+crc)
+        print(str(f_pos[i])  + "\t| ", end="")
     buffer += struct.pack('!B',crc)
+    
     arduino.write(buffer)
     d = arduino.read()
-    if int.from_bytes(d,"big") == int(crc):
+    if int.from_bytes(d,"big") == 1:
         print("\t COM OK         ", end="")
     else:
         print("\t COM ERR " + str(int.from_bytes(d,"big")) + "|" + str(crc))
