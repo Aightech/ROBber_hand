@@ -32,7 +32,7 @@ NB_FINGER = data["NB_FINGER"]
 
 # BUFFER SIZE AND LOOKUP TABLE
 lookup_table = [0, 1, 2, 3]
-BUFF_SIZE=10
+BUFF_SIZE=1
 
 r_pos = [0 for i in range(NB_FINGER)]
 f_pos = [0 for i in range(NB_FINGER)]
