@@ -31,8 +31,8 @@ kernel = np.ones((data["opening_kernel"],data["opening_kernel"]),np.uint8)
 NB_FINGER = data["NB_FINGER"]
 
 # BUFFER SIZE AND LOOKUP TABLE
-lookup_table = [0, 1, 2, 3]
-BUFF_SIZE=1
+lookup_table = [0, 1, 2, 3] # [nb finger cmd] => nb finger controlled
+BUFF_SIZE=1 #delay of the control
 
 r_pos = [0 for i in range(NB_FINGER)]
 f_pos = [0 for i in range(NB_FINGER)]
