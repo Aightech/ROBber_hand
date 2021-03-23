@@ -14,7 +14,7 @@ unsigned char pos[NB_FINGER] = {20, 00, 100, 00};
 int limit[NB_FINGER][2] = { {400, 280},
                                       {200, 385},
                                       {320, 170},
-                                      {200, 380}};
+                                      {180, 360}};
 
 void setup() {
   Serial.begin(9600);
