@@ -20,6 +20,11 @@ pip install -r requirements.txt
 ```
 ## Usage
 
+### Setup
+- Plug the arduino USB wire to the computer.
+- Plug the Webcam to the computer.
+- Connect the motor driver to a power supply (ex: a phone charger).
+
 ### Setting:
 To ensure the different parameters of the experiments are correct run the program setting with the command:
 ```bash 
