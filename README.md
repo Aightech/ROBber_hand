@@ -1,7 +1,7 @@
 # Robotics Rubber Hand
 
 ## Descriptiom
-
+![CAD](/img/P1.PNG)
 ## Requirements
 - Python installed.
 
