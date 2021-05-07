@@ -33,6 +33,7 @@ NB_FINGER = data["NB_FINGER"]
 # BUFFER SIZE AND LOOKUP TABLE
 lookup_table = [0, 1, 2, 3] # [nb finger cmd] => nb finger controlled
 BUFF_SIZE=1 #delay of the control
+inverted_finger = False
 
 r_pos = [0 for i in range(NB_FINGER)]
 f_pos = [0 for i in range(NB_FINGER)]
@@ -71,7 +72,7 @@ while(True):
     
     for i in range(NB_FINGER):
         b_pos[b_ind][i]=r_pos[lookup_table[i]]
-        f_pos[i]=b_pos[b_ind-BUFF_SIZE+1][i]
+        f_pos[i] = b_pos[b_ind-BUFF_SIZE+1][i] if (inverted_finger == False) else 255-b_pos[b_ind-BUFF_SIZE+1][i]
     b_ind = (b_ind+1)%BUFF_SIZE
     
     #Send position to the arduino and print in the terminal
