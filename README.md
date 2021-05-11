@@ -1,13 +1,14 @@
-# Robotics Rubber Hand
+# Robotics ROBber Hand
 
 ## Descriptiom
 ![CAD](/img/P1.PNG)
+
 ## Requirements
 - Python installed.
 
 ## Installation
 
-- Download the zip folder at https://github.com/Aightech/robber_hand .
+- Download the zip folder at https://github.com/Aightech/ROBber_hand .
 - Extract it
 - Open the folder.
 - Open the folder named **scripts**
@@ -41,3 +42,13 @@ python run.py <ARDUINO_PORT> <NB_CAM>
 Replace :
 - **<ARDUINO_PORT>** by the port used by the arduino (usually COM3, COM4, ...).
 - **<NB_CAM>** by the number of the webcam (usually 1 for laptop with integrated cam, else 0).
+
+### Options
+
+in the script named **scripts/run.py** you can modify the following lines to modify the behavior of the robot.
+```python
+# BUFFER SIZE AND LOOKUP TABLE
+lookup_table = [0, 1, 2, 3] # [nb finger cmd] => nb finger controlled
+BUFF_SIZE = 1 # Delay of the control (no unit... depends of you communication speed)
+inverted_finger = False  # When human finger up => robot finger down 
+```
