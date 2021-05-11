@@ -33,7 +33,7 @@ NB_FINGER = data["NB_FINGER"]
 # BUFFER SIZE AND LOOKUP TABLE
 lookup_table = [0, 1, 2, 3] # [nb finger cmd] => nb finger controlled
 BUFF_SIZE=1 #delay of the control
-inverted_finger = False
+inverted_finger = False  # When human finger up => robot finger down 
 
 r_pos = [0 for i in range(NB_FINGER)]
 f_pos = [0 for i in range(NB_FINGER)]
