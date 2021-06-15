@@ -3,8 +3,18 @@
 ## Descriptiom
 ![CAD](/img/P1.PNG)
 
+### List of material
+- 4 servos motors MG90(metal gear) or SG90 (plastic gears)
+- 1 servo driver PCA9685
+- 1 arduino
+- Screws and Bolts:
+  - 8 M3-12mm
+  - 4 M3-16mm
+  - 12 M5-20mm
+  - 4 M5 bolt
+
 ## Requirements
-- Python installed.
+- Python3/pip installed.
 
 ## Installation
 
