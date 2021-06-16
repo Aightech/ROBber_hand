@@ -13,6 +13,20 @@
   - 12 M5-20mm
   - 4 M5 bolt
 
+### Pieces to print
+- 1 ![frame](/models/frame.stl)
+- 1 ![lid](/models/frame.stl)
+- 4 ![foot](/models/frame.stl)
+- 1 ![arduinoUNO and PCA holder](/models/arduinoUNO_PCA_holder.stl)
+- 2 ![p1_short](/models/p1_short.stl)
+- 2 ![p1_long](/models/p1_long.stl)
+- 4 ![p2](/models/p2.stl)
+- 2 ![p3_short](/models/p3_short.stl)
+- 2 ![p3_long](/models/p3_long.stl)
+- 2 ![p4_short](/models/p4_short.stl)
+- 2 ![p4_long](/models/p4_long.stl)
+- 4 ![bolt](/models/bolt.stl)
+
 ## Requirements
 - Python3/pip installed.
 
