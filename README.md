@@ -13,7 +13,7 @@
   - 12 M5-20mm
   - 4 M5 bolt
 
-### Pieces to print
+### Parts to print
 - 1 ![frame](/models/frame.stl)
 - 1 ![lid](/models/frame.stl)
 - 4 ![foot](/models/frame.stl)
