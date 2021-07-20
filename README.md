@@ -76,3 +76,11 @@ lookup_table = [0, 1, 2, 3] # [nb finger cmd] => nb finger controlled
 BUFF_SIZE = 1 # Delay of the control (no unit... depends of you communication speed)
 inverted_finger = False  # When human finger up => robot finger down 
 ```
+
+# Debug
+
+In a terminal you can use the script **sendCmd.sh** to send position order to the Robber hand. Here an exemple:
+```bash
+Usage: scripts/sendCmd.sh [pos1] [pos2] [pos3] [pos4] port
+Ex: scripts/sendCmd.sh 20 40 50 60 /dev/ttyUSB0
+```
