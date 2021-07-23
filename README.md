@@ -31,7 +31,10 @@
 - Python3/pip installed.
 
 ## Installation
+### Electronics
+![CAD](/img/elec.png)
 
+### Software
 - Download the zip folder at https://github.com/Aightech/ROBber_hand .
 - Extract it
 - Open the folder.
