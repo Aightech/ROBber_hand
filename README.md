@@ -1,6 +1,6 @@
 # Robotics ROBber Hand
 
-## Descriptiom
+## Description
 ![CAD](/img/P1.PNG)
 
 ### List of material
@@ -33,6 +33,14 @@
 ## Installation
 ### Electronics
 ![CAD](/img/elec.png)
+
+### Firmware
+- Plug the arduino to the computer.
+- Open the arduino IDE
+- Ensure you have the last verdion of the library **Adafruit PWM Servo Driver** (go to the menu _sketch>Include library>Libraries Manager_ and search for "PWM".
+- Open the file scripts/arduino.ide of the repository
+- Upload it on the arduino board. 
+
 
 ### Software
 - Download the zip folder at https://github.com/Aightech/ROBber_hand .
