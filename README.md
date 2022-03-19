@@ -1,7 +1,8 @@
 # Robotics ROBber Hand
 
 ## Description
-ROBber hand is a robotic device extending the rubberhand illusion. The device records the movement of a real hand fingers. These movement are transmitted in real time to the robotic system reproducing the finger movements on a rubber hand. 
+Robotic version of the rubber hand experiement. A webacm capture the position of the finger tips (with color markers) and send the angle to the device. The device is composed of four servo motors driven by a PCA9685 driver and an arduino uno. A fake hand is placed on top of the device and each finger is pushed up by the device.
+
 ![CAD](/img/P1.PNG)
 
 ### List of material
