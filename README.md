@@ -1,7 +1,7 @@
 # Robotics ROBber Hand
 
 ## Description
-Robotic version of the rubber hand experiement. A webacm capture the position of the finger tips (with color markers) and send the angle to the device. The device is composed of four servo motors driven by a PCA9685 driver and an arduino uno. A fake hand is placed on top of the device and each finger is pushed up by the device.
+ROBber hand is a robotic version of the rubber hand experiment. A webcam captures the position of the fingertips (with colour markers) and sends the angle to the device. The device is composed of four servo motors driven by a PCA9685 driver and an Arduino Uno. A fake hand is placed on top of the device and each finger is pushed up by the device.
 
 ![CAD](/img/P1.PNG)
 
